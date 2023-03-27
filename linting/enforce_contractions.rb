@@ -1,6 +1,5 @@
 # problems:
 # case insensitivity
-# test
 
 def verify_contractions(words)
   required_contractions = {
