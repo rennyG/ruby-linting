@@ -39,4 +39,4 @@ def verify_contractions(words)
   end
 end
 
-verify_contractions("should not could not would not")
+verify_contractions("Cannot would not should not could not it's they're we're you are ain't theren't")

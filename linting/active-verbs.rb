@@ -1,4 +1,5 @@
-# Draft logic to handle descriptions provided as active verbs
+# Draft logic to handle descriptions provided as active verbs, but which shouoldn't be
+# Needs testing
 
 def plural(description)
   arr = description.split
@@ -13,3 +14,6 @@ def plural(description)
       arr.unshift('The')
     end
   end
+end
+
+  plural("Emails a mess of the place")

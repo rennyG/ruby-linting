@@ -12,4 +12,4 @@ def datetime(d)
 end
 
 
-datetime("whenever the thing went south")
+datetime("The date and time when it all went south")
