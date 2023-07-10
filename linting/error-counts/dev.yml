@@ -1,0 +1,20 @@
+name: gql-admin-2023-10-error-counts
+
+type: ruby
+
+up:
+  - ruby: 3.2.2
+  - bundler
+
+commands:
+  console:
+    desc: 'start a console'
+    run: bin/console
+  run:
+    desc: 'start the application'
+    run: bin/run
+  test:
+    syntax:
+      argument: file
+      optional: args...
+    run: bin/testunit
