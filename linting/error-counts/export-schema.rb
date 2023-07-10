@@ -22,7 +22,7 @@ schema.types.each_value do |type|
   # Count and save description for the type itself
   if type.description
     type_count += 1
-    descriptions << ["Type", type.name, type.description, "Type: #{type.name}", ""]
+    descriptions << ["Type", type.name, type.description, "Type: #{type.name}"]
   end
 
   # If the type has fields, iterate over them
@@ -31,8 +31,7 @@ schema.types.each_value do |type|
       # Count and save description for the field
       if field.description
         field_count += 1
-        field_type = field.type.kind.boolean? ? "Boolean" : (field.type.kind.datetime? ? "Datetime" : "")
-        descriptions << ["Field", field.name, field.description, "Type: #{type.name}, Field: #{field.name}", field_type]
+        descriptions << ["Field", field.name, field.description, "Type: #{type.name}, Field: #{field.name}"]
       end
 
       # If the field has arguments, iterate over them
@@ -40,7 +39,7 @@ schema.types.each_value do |type|
         # Count and save description for the argument
         if argument.description
           argument_count += 1
-          descriptions << ["Argument", argument.name, argument.description, "Type: #{type.name}, Field: #{field.name}, Argument: #{argument.name}", ""]
+          descriptions << ["Argument", argument.name, argument.description, "Type: #{type.name}, Field: #{field.name}, Argument: #{argument.name}"]
         end
       end
     end
@@ -52,7 +51,7 @@ schema.types.each_value do |type|
       # Count and save description for the enum value
       if enum_value.description
         enum_value_count += 1
-        descriptions << ["Enum Value", enum_value.graphql_name, enum_value.description, "Type: #{type.name}, Enum Value: #{enum_value.graphql_name}", ""]
+        descriptions << ["Enum Value", enum_value.graphql_name, enum_value.description, "Type: #{type.name}, Enum Value: #{enum_value.graphql_name}"]
       end
     end
   end
@@ -60,19 +59,19 @@ end
 
 # Create a table
 table = Terminal::Table.new do |t|
-  t << ['Element', 'Count', 'Data Type']
+  t << ['Element', 'Count']
   t << :separator
-  t << ['Type', type_count, '']
-  t << ['Field', field_count, '']
-  t << ['Argument', argument_count, '']
-  t << ['Enum Value', enum_value_count, '']
+  t << ['Type', type_count]
+  t << ['Field', field_count]
+  t << ['Argument', argument_count]
+  t << ['Enum Value', enum_value_count]
 end
 
 puts table
 
 # Generate a CSV file with all the descriptions
 CSV.open("descriptions.csv", "wb") do |csv|
-  csv << ["Element Type", "Element Name", "Description", "Identifier", "Data Type"]
+  csv << ["Element Type", "Element Name", "Description", "Identifier"]
   descriptions.each do |description|
     csv << description
   end
