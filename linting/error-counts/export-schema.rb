@@ -4,7 +4,7 @@ require 'terminal-table'
 require 'csv'
 
 # Load and parse the schema from the JSON file
-schema_json = File.read('admin-schema.json')
+schema_json = File.read('linting/error-counts/admin-schema.json')
 schema_hash = JSON.parse(schema_json)
 schema = GraphQL::Schema.from_introspection(schema_hash)
 
